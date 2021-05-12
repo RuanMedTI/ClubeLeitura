@@ -52,6 +52,9 @@ namespace ClubeLeitura.ConsoleApp
                 else if (opcao == "5")
                     tela.Historico();
 
+                else if (opcao == "Devolver")
+                    tela.Devolver(0);
+
                 Console.Clear();
             }
         }

@@ -38,7 +38,7 @@ namespace ClubeLeitura.ConsoleApp.Tela
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Digite 2 para visulizar os registros");
             Console.ResetColor();
-            Console.WriteLine("Digite 3 para devolver uma revista");
+            Console.WriteLine("Digite (Devolver) para devolver uma revista");
 
             Console.WriteLine("Digite S para sair");
 
@@ -69,9 +69,10 @@ namespace ClubeLeitura.ConsoleApp.Tela
 
             telaRevista.VisualizarRegistros();
 
-
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Vamos locar o livro agora...");
             Console.ReadLine();
+            Console.ResetColor();
 
             string amigoEmprestimo = ObterInputString("Digite o nome do amigo: ");
             string caixaEmprestimo = ObterInputString("Digite a etiqueta da caixa onde o livro está: ");
@@ -101,6 +102,40 @@ namespace ClubeLeitura.ConsoleApp.Tela
             }
 
             Console.ReadLine();
+        }
+
+        override public void Devolver(int idEmprestimoSelecionado)
+        {
+            Console.Clear();
+
+            Console.WriteLine("Visualização dos amigos cadastrados...");
+            Console.WriteLine("------------------------------------------------------------");
+            Console.ReadLine();
+
+            telaAmigo.VisualizarRegistros();
+
+            Console.WriteLine("Visualização das caixas cadastradas...");
+            Console.WriteLine("------------------------------------------------------------");
+            Console.ReadLine();
+
+            telaCaixa.VisualizarRegistros();
+
+            Console.WriteLine("Visualização das revistas cadastradas...");
+            Console.WriteLine("------------------------------------------------------------");
+            Console.ReadLine();
+
+            telaRevista.VisualizarRegistros();
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Vamos devolver o livro agora!");
+            Console.ReadLine();
+            Console.ResetColor();
+
+            string amigoEmprestimo = ObterInputString("Digite o nome do amigo: ");
+            string caixaEmprestimo = ObterInputString("Digite a etiqueta da caixa para guardar o livro: ");
+            string revistaEmprestimo = ObterInputString("Digite o nome da revista: ");
+
+            controladorEmprestimo.Registrar(idEmprestimoSelecionado, amigoEmprestimo, caixaEmprestimo, revistaEmprestimo);
         }
 
         private static void MontarCabecalhoTabela()

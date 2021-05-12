@@ -35,7 +35,7 @@ namespace ClubeLeitura.ConsoleApp.Controlador
 
             string resultadoValidacao = emprestimo.Validar();
 
-            if (resultadoValidacao == "REVISTA_VALIDO")
+            if (resultadoValidacao == "EMPRESTIMO_VALIDO")
                 registros[posicao] = emprestimo;
 
             return resultadoValidacao;
@@ -51,6 +51,36 @@ namespace ClubeLeitura.ConsoleApp.Controlador
             Emprestimo[] aux = new Emprestimo[QtdRegistrosCadastrados()];
             Array.Copy(SelecionarTodosRegistros(), aux, aux.Length);
             return aux;
+        }
+
+        public string Devolver(int id, string amigoEmprestimo, string caixaEmprestimo, string revistaEmprestimo)
+        {
+            Emprestimo emprestimo = null;
+
+            int posicao = 0;
+
+            if (id == 0)
+            {
+                emprestimo = new Emprestimo();
+                posicao = ObterPosicaoVazia();
+            }
+
+            else
+            {
+                posicao = ObterPosicaoOcupadaPorId(id);
+                emprestimo = (Emprestimo)registros[posicao];
+            }
+
+            emprestimo.amigoEmprestimo = amigoEmprestimo;
+            emprestimo.caixaEmprestimo = caixaEmprestimo;
+            emprestimo.revistaEmprestimo = revistaEmprestimo;
+
+            string resultadoValidacao = emprestimo.Validar();
+
+            if (resultadoValidacao == "EMPRESTIMO_VALIDO")
+                registros[posicao] = emprestimo;
+
+            return resultadoValidacao;
         }
 
         protected int ObterPosicaoOcupadaPorId(int id)
