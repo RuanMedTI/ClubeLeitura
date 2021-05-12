@@ -8,7 +8,7 @@ using ClubeLeitura.ConsoleApp.Controlador;
 
 namespace ClubeLeitura.ConsoleApp.Tela
 {
-    public class TelaBase
+    abstract public class TelaBase
     {
         const int CAPACIDADE_REGISTROS = 100;
 
@@ -87,11 +87,6 @@ namespace ClubeLeitura.ConsoleApp.Tela
 
         }
 
-        public virtual string ObterOpcao()
-        {
-            return "";
-        }
-
         public int ObterInputInt(string mensagem)
         {
             int n;
@@ -125,25 +120,13 @@ namespace ClubeLeitura.ConsoleApp.Tela
             return d;
         }
 
-        public virtual void Registrar(int id)
-        {
+        abstract public string ObterOpcao();
 
-        }
+        public virtual void Registrar(int id) { }
+        public virtual void VisualizarRegistros() { }
+        public virtual void EditarRegistro() { }
+        public virtual void ExcluirRegistro() { }
 
-        public virtual void Excluir()
-        {
-
-        }
-
-        public virtual void Visualizar()
-        {
-
-        }
-
-        public virtual void Editar()
-        {
-
-        }
     }
 
 }

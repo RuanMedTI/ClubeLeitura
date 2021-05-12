@@ -8,7 +8,7 @@ using ClubeLeitura.ConsoleApp.Dominio;
 
 namespace ClubeLeitura.ConsoleApp.Tela
 {
-    public class TelaRevista : TelaBase
+    public class TelaRevista : TelaBase, ICadastravel
     {
         private ControladorRevista controladorRevista;
 
@@ -68,7 +68,7 @@ namespace ClubeLeitura.ConsoleApp.Tela
             } while (resultadoValidacao != "REVISTA_VALIDO");
         }
 
-        override public void Visualizar()
+        override public void VisualizarRegistros()
         {
             Console.Clear();
 
@@ -97,12 +97,12 @@ namespace ClubeLeitura.ConsoleApp.Tela
             Console.ReadLine();
         }
 
-        override public void Editar()
+        override public void EditarRegistro()
         {
             //visualiza as revistas
             Console.Clear();
 
-            Visualizar();
+            VisualizarRegistros();
 
             Console.WriteLine();
 
@@ -113,12 +113,12 @@ namespace ClubeLeitura.ConsoleApp.Tela
             Registrar(idSelecionado);
         }
 
-        override public void Excluir()
+        override public void ExcluirRegistro()
         {
             //visualização das revistas
             Console.Clear();
 
-            Visualizar();
+            VisualizarRegistros();
 
             Console.WriteLine();
 

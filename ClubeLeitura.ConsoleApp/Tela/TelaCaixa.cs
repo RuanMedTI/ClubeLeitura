@@ -8,7 +8,7 @@ using ClubeLeitura.ConsoleApp.Dominio;
 
 namespace ClubeLeitura.ConsoleApp.Tela
 {
-    public class TelaCaixa : TelaBase
+    public class TelaCaixa : TelaBase, ICadastravel
     {
         private ControladorCaixa controladorCaixa;
 
@@ -68,7 +68,7 @@ namespace ClubeLeitura.ConsoleApp.Tela
             } while (resultadoValidacao != "CAIXA_VALIDO");
         }
 
-        override public void Visualizar()
+        override public void VisualizarRegistros()
         {
             Console.Clear();
 
@@ -97,12 +97,12 @@ namespace ClubeLeitura.ConsoleApp.Tela
             Console.ReadLine();
         }
 
-        override public void Editar()
+        override public void EditarRegistro()
         {
             //visualiza as caixas
             Console.Clear();
 
-            Visualizar();
+            VisualizarRegistros();
 
             Console.WriteLine();
 
@@ -113,12 +113,12 @@ namespace ClubeLeitura.ConsoleApp.Tela
             Registrar(idSelecionado);
         }
 
-        override public void Excluir()
+        override public void ExcluirRegistro()
         {
             //visualização dos caixa
             Console.Clear();
 
-            Visualizar();
+            VisualizarRegistros();
 
             Console.WriteLine();
 

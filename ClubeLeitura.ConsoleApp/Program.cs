@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ClubeLeitura.ConsoleApp.Tela;
-using ClubeLeitura.ConsoleApp.Controlador;
 
 namespace ClubeLeitura.ConsoleApp
 {
@@ -14,12 +13,9 @@ namespace ClubeLeitura.ConsoleApp
 
         static void Main(string[] args)
         {
-            /*ControladorEquipamento controladorEquipamento = new ControladorEquipamento();
-            TelaEquipamento telaEquipamento = new TelaEquipamento(controladorEquipamento);
-            ControladorChamado controladorChamado = new ControladorChamado(CAPACIDADE_REGISTROS, controladorEquipamento);
-            TelaChamado telaChamado = new TelaChamado(telaEquipamento, controladorChamado);*/
+            TelaBase telaBase = new TelaCaixa(null);
 
-            TelaBase telaBase = new TelaBase();
+            ICadastravel d = new TelaAmigo(null);
 
             Console.Clear();
 
@@ -45,13 +41,13 @@ namespace ClubeLeitura.ConsoleApp
                     tela.Registrar(0);
 
                 else if (opcao == "2")
-                    tela.Visualizar();
+                    tela.VisualizarRegistros();
 
                 else if (opcao == "3")
-                    tela.Editar();
+                    tela.EditarRegistro();
 
                 else if (opcao == "4")
-                    tela.Excluir();
+                    tela.ExcluirRegistro();
 
                 else if (opcao == "5")
                     tela.Historico();

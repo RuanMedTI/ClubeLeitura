@@ -8,7 +8,7 @@ using ClubeLeitura.ConsoleApp.Dominio;
 
 namespace ClubeLeitura.ConsoleApp.Tela
 {
-    public class TelaEmprestimo : TelaBase
+    public class TelaEmprestimo : TelaBase, ICadastravel 
     {
         private TelaCaixa telaCaixa;
         private TelaRevista telaRevista;
@@ -55,19 +55,19 @@ namespace ClubeLeitura.ConsoleApp.Tela
             Console.WriteLine("------------------------------------------------------------");
             Console.ReadLine();
 
-            telaAmigo.Visualizar();
+            telaAmigo.VisualizarRegistros();
 
             Console.WriteLine("Visualização das caixas cadastradas...");
             Console.WriteLine("------------------------------------------------------------");
             Console.ReadLine();
 
-            telaCaixa.Visualizar();
+            telaCaixa.VisualizarRegistros();
 
             Console.WriteLine("Visualização das revistas cadastradas...");
             Console.WriteLine("------------------------------------------------------------");
             Console.ReadLine();
 
-            telaRevista.Visualizar();
+            telaRevista.VisualizarRegistros();
 
 
             Console.WriteLine("Vamos locar o livro agora...");
@@ -79,7 +79,7 @@ namespace ClubeLeitura.ConsoleApp.Tela
 
             controladorEmprestimo.Registrar(idEmprestimoSelecionado, amigoEmprestimo, caixaEmprestimo, revistaEmprestimo);
         }
-        override public void Visualizar()
+        override public void VisualizarRegistros()
         {
             Console.Clear();
 
