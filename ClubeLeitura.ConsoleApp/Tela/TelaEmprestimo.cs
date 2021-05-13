@@ -135,7 +135,7 @@ namespace ClubeLeitura.ConsoleApp.Tela
             string caixaEmprestimo = ObterInputString("Digite a etiqueta da caixa para guardar o livro: ");
             string revistaEmprestimo = ObterInputString("Digite o nome da revista: ");
 
-            controladorEmprestimo.Registrar(idEmprestimoSelecionado, amigoEmprestimo, caixaEmprestimo, revistaEmprestimo);
+            controladorEmprestimo.Devolver(idEmprestimoSelecionado, amigoEmprestimo, caixaEmprestimo, revistaEmprestimo);
         }
 
         private static void MontarCabecalhoTabela()
