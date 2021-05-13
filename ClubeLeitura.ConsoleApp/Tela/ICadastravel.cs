@@ -12,7 +12,7 @@ namespace ClubeLeitura.ConsoleApp.Tela
 
         void VisualizarRegistrosAbertos();
 
-        void Devolver(int id);
+        void Devolver();
 
         void EditarRegistro();
 

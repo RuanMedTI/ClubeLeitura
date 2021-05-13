@@ -36,11 +36,11 @@ namespace ClubeLeitura.ConsoleApp.Tela
             Console.WriteLine("Digite 1 para locar uma revista");
 
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Digite 2 para visualizar os registros finalizados");
+            Console.WriteLine("Digite 2 para visualizar os registros abertos");
             Console.ResetColor();
 
             
-            Console.WriteLine("Digite (Abertos) para visualizar os registros abertos");
+            Console.WriteLine("Digite (Finalizados) para visualizar os registros fechados");
             
 
             Console.WriteLine("Digite (Devolver) para devolver uma revista");
@@ -111,7 +111,7 @@ namespace ClubeLeitura.ConsoleApp.Tela
             Console.ReadLine();
         }
 
-        override public void Devolver(int idEmprestimoSelecionado)
+        override public void Devolver()
         {
             Console.Clear();
 
@@ -142,7 +142,7 @@ namespace ClubeLeitura.ConsoleApp.Tela
             string caixaEmprestimoDevol = ObterInputString("Digite a etiqueta da caixa para guardar o livro: ");
             string revistaEmprestimoDevol = ObterInputString("Digite o nome da revista: ");
 
-            controladorEmprestimo.Devolver(idEmprestimoSelecionado, amigoEmprestimoDevol, caixaEmprestimoDevol, revistaEmprestimoDevol);
+            controladorEmprestimo.Devolver(amigoEmprestimoDevol, caixaEmprestimoDevol, revistaEmprestimoDevol);
         }
 
         override public void VisualizarRegistrosAbertos()

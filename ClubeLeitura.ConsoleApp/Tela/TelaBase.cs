@@ -124,7 +124,7 @@ namespace ClubeLeitura.ConsoleApp.Tela
 
         public virtual void Registrar(int id) { }
         public virtual void VisualizarRegistrosAbertos() { }
-        public virtual void Devolver(int id) { }
+        public virtual void Devolver() { }
         public virtual void VisualizarRegistros() { }
         public virtual void EditarRegistro() { }
         public virtual void ExcluirRegistro() { }

@@ -53,23 +53,11 @@ namespace ClubeLeitura.ConsoleApp.Controlador
             return aux;
         }
 
-        public string Devolver(int id, string amigoEmprestimoDevol, string caixaEmprestimoDevol, string revistaEmprestimoDevol)
+        public string Devolver( string amigoEmprestimoDevol, string caixaEmprestimoDevol, string revistaEmprestimoDevol)
         {
             Emprestimo emprestimo = null;
 
             int posicao = 0;
-
-            if (id == 0)
-            {
-                emprestimo = new Emprestimo();
-                posicao = ObterPosicaoVazia();
-            }
-
-            else
-            {
-                posicao = ObterPosicaoOcupadaPorId(id);
-                emprestimo = (Emprestimo)registros[posicao];
-            }
 
             emprestimo.amigoEmprestimoDevol = amigoEmprestimoDevol;
             emprestimo.caixaEmprestimoDevol = caixaEmprestimoDevol;

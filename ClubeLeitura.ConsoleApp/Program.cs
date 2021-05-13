@@ -53,7 +53,7 @@ namespace ClubeLeitura.ConsoleApp
                     tela.Historico();
 
                 else if (opcao == "Devolver")
-                    tela.Devolver(0);
+                    tela.Devolver();
 
                 else if (opcao == "Abertos")
                     tela.VisualizarRegistrosAbertos();
