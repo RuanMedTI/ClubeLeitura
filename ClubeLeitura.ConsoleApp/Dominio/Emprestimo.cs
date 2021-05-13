@@ -14,6 +14,9 @@ namespace ClubeLeitura.ConsoleApp.Dominio
         public string amigoEmprestimo;
         public string caixaEmprestimo;
         public string revistaEmprestimo;
+        public string amigoEmprestimoDevol;
+        public string caixaEmprestimoDevol;
+        public string revistaEmprestimoDevol;
 
         public Emprestimo()
         {

@@ -55,6 +55,9 @@ namespace ClubeLeitura.ConsoleApp
                 else if (opcao == "Devolver")
                     tela.Devolver(0);
 
+                else if (opcao == "Abertos")
+                    tela.VisualizarRegistrosAbertos();
+
                 Console.Clear();
             }
         }

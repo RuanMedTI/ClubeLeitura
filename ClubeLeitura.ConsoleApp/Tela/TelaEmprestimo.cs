@@ -36,9 +36,16 @@ namespace ClubeLeitura.ConsoleApp.Tela
             Console.WriteLine("Digite 1 para locar uma revista");
 
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Digite 2 para visulizar os registros");
+            Console.WriteLine("Digite 2 para visualizar os registros finalizados");
             Console.ResetColor();
+
+            
+            Console.WriteLine("Digite (Abertos) para visualizar os registros abertos");
+            
+
             Console.WriteLine("Digite (Devolver) para devolver uma revista");
+
+
 
             Console.WriteLine("Digite S para sair");
 
@@ -131,11 +138,35 @@ namespace ClubeLeitura.ConsoleApp.Tela
             Console.ReadLine();
             Console.ResetColor();
 
-            string amigoEmprestimo = ObterInputString("Digite o nome do amigo: ");
-            string caixaEmprestimo = ObterInputString("Digite a etiqueta da caixa para guardar o livro: ");
-            string revistaEmprestimo = ObterInputString("Digite o nome da revista: ");
+            string amigoEmprestimoDevol = ObterInputString("Digite o nome do amigo: ");
+            string caixaEmprestimoDevol = ObterInputString("Digite a etiqueta da caixa para guardar o livro: ");
+            string revistaEmprestimoDevol = ObterInputString("Digite o nome da revista: ");
 
-            controladorEmprestimo.Devolver(idEmprestimoSelecionado, amigoEmprestimo, caixaEmprestimo, revistaEmprestimo);
+            controladorEmprestimo.Devolver(idEmprestimoSelecionado, amigoEmprestimoDevol, caixaEmprestimoDevol, revistaEmprestimoDevol);
+        }
+
+        override public void VisualizarRegistrosAbertos()
+        {
+            Console.Clear();
+
+            MontarCabecalhoTabela();
+
+            Emprestimo[] emprestimos = controladorEmprestimo.SelecionarTodosEmprestimos();
+
+            foreach (Emprestimo emprestimo in emprestimos)
+            {
+                Console.WriteLine("{0,-10} | {1,-30} | {2,-55} | {3,-25}",
+                    emprestimo.id, emprestimo.amigoEmprestimoDevol, emprestimo.caixaEmprestimoDevol, emprestimo.revistaEmprestimoDevol);
+            }
+
+            if (emprestimos.Length == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                Console.WriteLine("Nenhuma revista locada");
+                Console.ResetColor();
+            }
+
+            Console.ReadLine();
         }
 
         private static void MontarCabecalhoTabela()

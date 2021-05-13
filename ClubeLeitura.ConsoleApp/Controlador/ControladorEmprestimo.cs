@@ -53,7 +53,7 @@ namespace ClubeLeitura.ConsoleApp.Controlador
             return aux;
         }
 
-        public string Devolver(int id, string amigoEmprestimo, string caixaEmprestimo, string revistaEmprestimo)
+        public string Devolver(int id, string amigoEmprestimoDevol, string caixaEmprestimoDevol, string revistaEmprestimoDevol)
         {
             Emprestimo emprestimo = null;
 
@@ -71,9 +71,9 @@ namespace ClubeLeitura.ConsoleApp.Controlador
                 emprestimo = (Emprestimo)registros[posicao];
             }
 
-            emprestimo.amigoEmprestimo = amigoEmprestimo;
-            emprestimo.caixaEmprestimo = caixaEmprestimo;
-            emprestimo.revistaEmprestimo = revistaEmprestimo;
+            emprestimo.amigoEmprestimoDevol = amigoEmprestimoDevol;
+            emprestimo.caixaEmprestimoDevol = caixaEmprestimoDevol;
+            emprestimo.revistaEmprestimoDevol = revistaEmprestimoDevol;
 
             string resultadoValidacao = emprestimo.Validar();
 
